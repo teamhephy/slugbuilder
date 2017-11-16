@@ -1,5 +1,5 @@
 name: slugbuilder
-home: https://github.com/deisthree/slugbuilder
+home: https://github.com/teamhephy/slugbuilder
 version: <Will be populated by the ci before publishing the chart>
 description: Buildpack application builder for Deis Workflow.
 maintainers:
