@@ -103,7 +103,7 @@ export STACK=heroku-18
 if [ "$(ls -A $secret_dir)" ]; then
     for subpath in "$secret_dir"; do
         if [[ -f "$subpath" ]]; then
-            cp -r $secret_dir/* $env_root/
+            cp $subpath $env_root/
         fi
     done
 fi
