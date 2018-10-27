@@ -1,4 +1,4 @@
-FROM heroku/heroku:18
+FROM heroku/heroku:18-build
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN mkdir /app
@@ -14,7 +14,6 @@ RUN sed -i -e 's/^deb-src/#deb-src/' /etc/apt/sources.list && \
     apt-get clean -y && \
     # package up license files if any by appending to existing tar
     rm -rf \
-        /tmp/* \
         /usr/share/doc \
         /usr/share/man \
         /usr/share/info \
