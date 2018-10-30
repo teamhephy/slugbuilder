@@ -9,7 +9,6 @@ trap sleep_before_exit EXIT
 
 [[ $DEIS_DEBUG ]] && set -x
 unset DEIS_DEBUG
-
 app_dir=/app
 build_root=/tmp/build
 cache_root=/tmp/cache
@@ -97,13 +96,16 @@ export APP_DIR="$app_dir"
 export HOME="$app_dir"
 REQUEST_ID=$(openssl rand -base64 32)
 export REQUEST_ID
-export STACK=cedar-14
+export STACK=heroku-18
 
 ## copy the environment dir excluding the ephemeral ..data/ dir and other symlinks created by Kubernetes.
-
-if [ "$(ls -A $secret_dir)" ]; then
-   cp -r $secret_dir/. $env_root/
-fi
+secret_dir_file_list="$(ls -A $secret_dir)"
+for subpath in $secret_dir_file_list; do
+    full_path="$secret_dir/$subpath"
+    if [[ -f "$full_path" ]]; then
+        cp "$full_path" "$env_root/"
+    fi
+done
 
 ## SSH key configuration
 
@@ -152,7 +154,7 @@ if [[ -n "$BUILDPACK_URL" ]]; then
     fi
 
     selected_buildpack="$buildpack"
-    buildpack_name=$($buildpack/bin/detect "$build_root") && selected_buildpack=$buildpack
+    buildpack_name=$("$buildpack/bin/detect" "$build_root") && selected_buildpack=$buildpack
 else
     for buildpack in "${buildpacks[@]}"; do
         buildpack_name=$("$buildpack/bin/detect" "$build_root") && selected_buildpack=$buildpack && break
@@ -175,9 +177,7 @@ if [[ -f "$build_root/bin/pre-compile" ]]; then
 fi
 
 ## Buildpack compile
-
 "$selected_buildpack/bin/compile" "$build_root" "$cache_root" "$env_root" | ensure_indent
-
 "$selected_buildpack/bin/release" "$build_root" > $build_root/.release
 
 ## Run post-compile hook

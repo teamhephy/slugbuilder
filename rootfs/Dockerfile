@@ -1,5 +1,6 @@
-FROM heroku/cedar:14
+FROM heroku/heroku:18-build
 
+ENV DEBIAN_FRONTEND noninteractive
 RUN mkdir /app
 RUN addgroup --quiet --gid 2000 slug && \
     useradd slug --uid=2000 --gid=2000 --home-dir /app --no-create-home
@@ -12,8 +13,6 @@ RUN sed -i -e 's/^deb-src/#deb-src/' /etc/apt/sources.list && \
     apt-get autoremove -y && \
     apt-get clean -y && \
     # package up license files if any by appending to existing tar
-    COPYRIGHT_TAR='/usr/share/copyrights.tar'; \
-    gunzip $COPYRIGHT_TAR.gz; tar -rf $COPYRIGHT_TAR /usr/share/doc/*/copyright; gzip $COPYRIGHT_TAR && \
     rm -rf \
         /usr/share/doc \
         /usr/share/man \

@@ -29,14 +29,14 @@ download_buildpack() {
 mkdir -p $BUILDPACK_INSTALL_PATH
 
 download_buildpack https://github.com/heroku/heroku-buildpack-multi.git          v1.0.0   01-multi
-download_buildpack https://github.com/heroku/heroku-buildpack-clojure.git        v77      02-clojure
-download_buildpack https://github.com/heroku/heroku-buildpack-go.git             v71      03-go
-download_buildpack https://github.com/heroku/heroku-buildpack-gradle.git         v23      04-gradle
-download_buildpack https://github.com/heroku/heroku-buildpack-grails.git         v21      05-grails
-download_buildpack https://github.com/heroku/heroku-buildpack-java.git           v53      06-java
-download_buildpack https://github.com/heroku/heroku-buildpack-nodejs.git         v110     07-nodejs
-download_buildpack https://github.com/heroku/heroku-buildpack-php.git            v121     08-php
+download_buildpack https://github.com/heroku/heroku-buildpack-clojure.git        v82      02-clojure
+download_buildpack https://github.com/heroku/heroku-buildpack-go.git             v94      03-go
+download_buildpack https://github.com/heroku/heroku-buildpack-gradle.git         v27      04-gradle
+download_buildpack https://github.com/heroku/heroku-buildpack-grails.git         v21      05-grails 
+download_buildpack https://github.com/heroku/heroku-buildpack-java.git           v62      06-java
+download_buildpack https://github.com/heroku/heroku-buildpack-nodejs.git         v130     07-nodejs
+download_buildpack https://github.com/heroku/heroku-buildpack-php.git            v145     08-php   
 download_buildpack https://github.com/heroku/heroku-buildpack-play.git           v26      09-play
-download_buildpack https://github.com/heroku/heroku-buildpack-python.git         v109     10-python
-download_buildpack https://github.com/heroku/heroku-buildpack-ruby.git           v167     11-ruby
-download_buildpack https://github.com/heroku/heroku-buildpack-scala.git          v77      12-scala
+download_buildpack https://github.com/heroku/heroku-buildpack-python.git         v144     10-python
+download_buildpack https://github.com/heroku/heroku-buildpack-ruby.git           v195     11-ruby
+download_buildpack https://github.com/heroku/heroku-buildpack-scala.git          v82      12-scala
