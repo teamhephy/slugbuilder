@@ -157,7 +157,12 @@ if [[ -n "$BUILDPACK_URL" ]]; then
     buildpack_name=$("$buildpack/bin/detect" "$build_root") && selected_buildpack=$buildpack
 else
     for buildpack in "${buildpacks[@]}"; do
-        buildpack_name=$("$buildpack/bin/detect" "$build_root") && selected_buildpack=$buildpack && break
+        shopt -s nocasematch
+        if [[ "$DEIS_BUILDPACK_DEBUG" == "True" ]]; then
+            buildpack_name=$("$buildpack/bin/detect" "$build_root") && selected_buildpack=$buildpack && break
+        else
+            buildpack_name=$("$buildpack/bin/detect" "$build_root" 2> /dev/null) && selected_buildpack=$buildpack && break
+        fi
     done
 fi
 
