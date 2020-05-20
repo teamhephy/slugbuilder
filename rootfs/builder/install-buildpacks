@@ -30,13 +30,13 @@ mkdir -p $BUILDPACK_INSTALL_PATH
 
 download_buildpack https://github.com/heroku/heroku-buildpack-multi.git          v1.0.0   01-multi
 download_buildpack https://github.com/heroku/heroku-buildpack-clojure.git        v84      02-clojure
-download_buildpack https://github.com/heroku/heroku-buildpack-go.git             v139     03-go
+download_buildpack https://github.com/heroku/heroku-buildpack-go.git             v140     03-go
 download_buildpack https://github.com/heroku/heroku-buildpack-gradle.git         v31      04-gradle
 download_buildpack https://github.com/heroku/heroku-buildpack-grails.git         v21      05-grails
 download_buildpack https://github.com/heroku/heroku-buildpack-java.git           v66      06-java
-download_buildpack https://github.com/heroku/heroku-buildpack-nodejs.git         v167     07-nodejs
-download_buildpack https://github.com/heroku/heroku-buildpack-php.git            v173     08-php
+download_buildpack https://github.com/heroku/heroku-buildpack-nodejs.git         v171     07-nodejs
+download_buildpack https://github.com/heroku/heroku-buildpack-php.git            v174     08-php
 download_buildpack https://github.com/heroku/heroku-buildpack-play.git           v26      09-play
-download_buildpack https://github.com/heroku/heroku-buildpack-python.git         v167     10-python
-download_buildpack https://github.com/heroku/heroku-buildpack-ruby.git           v212     11-ruby
+download_buildpack https://github.com/heroku/heroku-buildpack-python.git         v170     10-python
+download_buildpack https://github.com/heroku/heroku-buildpack-ruby.git           v215     11-ruby
 download_buildpack https://github.com/heroku/heroku-buildpack-scala.git          v87      12-scala
