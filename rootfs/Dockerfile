@@ -30,7 +30,7 @@ RUN sed -i -e 's/^deb-src/#deb-src/' /etc/apt/sources.list && \
 
 ADD . /
 ENV PYTHONPATH $PYTHONPATH:/usr/local/lib/python3/site-packages
-ADD https://storage.googleapis.com/object-storage-cli/bb8e054/objstorage-bb8e054-linux-amd64 /bin/objstorage
+ADD https://storage.googleapis.com/object-storage-cli/bb209cb/objstorage-bb209cb-linux-amd64 /bin/objstorage
 RUN chmod +x /bin/objstorage && \
     chown -R slug:slug /app && \
     chown slug:slug /bin/get_object \
