@@ -30,8 +30,8 @@ RUN sed -i -e 's/^deb-src/#deb-src/' /etc/apt/sources.list && \
 
 ADD . /
 ENV PYTHONPATH $PYTHONPATH:/usr/local/lib/python3/site-packages
-RUN mv objstorage /bin/objstorage && \
-    chmod +x /bin/objstorage && \
+ADD https://storage.googleapis.com/hephy-obj-storage-cli/bb8e054/objstorage /bin/objstorage
+RUN chmod +x /bin/objstorage && \
     chown -R slug:slug /app && \
     chown slug:slug /bin/get_object \
                     /bin/normalize_storage \
