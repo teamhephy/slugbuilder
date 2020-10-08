@@ -5,7 +5,7 @@ export GO15VENDOREXPERIMENT=1
 # Note that Minio currently uses CGO.
 
 LDFLAGS := "-s -X main.version=${VERSION}"
-IMAGE_PREFIX ?= deis
+IMAGE_PREFIX ?= hephy
 BINDIR := ./rootfs/bin
 
 include versioning.mk
