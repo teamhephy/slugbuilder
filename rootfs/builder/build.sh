@@ -24,7 +24,7 @@ mkdir -p $secret_dir
 mkdir -p $buildpack_root
 mkdir -p $build_root/.profile.d
 
-if ! [[ -z "${TAR_PATH}" ]]; then
+if [[ -n "${TAR_PATH}" ]]; then
 	get_object
 	tar -xzf /tmp/slug.tgz -C /app/
 	unset TAR_PATH
@@ -67,7 +67,7 @@ function cache_fingerprint() {
 }
 
 # Restore cache when a $CACHE_PATH was supplied
-if ! [[ -z "${CACHE_PATH}" ]]; then
+if [[ -n "${CACHE_PATH}" ]]; then
   echo_title "Restoring cache..."
   restore_cache
   if [[ -f ${cache_file} ]]; then
@@ -122,7 +122,7 @@ fi
 
 ## Buildpack detection
 
-buildpacks=($buildpack_root/*)
+buildpacks=("$buildpack_root/*")
 selected_buildpack=
 
 if [[ -n "$BUILDPACK_URL" ]]; then
@@ -228,7 +228,7 @@ if [[ ! -f "$build_root/Procfile" ]]; then
 fi
 
 # Compress and save cache
-if ! [[ -z "${CACHE_PATH}" ]]; then
+if [[ -n "${CACHE_PATH}" ]]; then
   echo_title "Checking for changes inside the cache directory..."
   # If there's any files in the cache_root folder, we'll create a tar and upload
   # it for future use
