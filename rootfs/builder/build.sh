@@ -123,7 +123,7 @@ fi
 ## Buildpack detection
 
 # shellcheck disable=SC2206
-buildpacks=(${buildpack_root/*})
+buildpacks=(${buildpack_root}/*)
 selected_buildpack=
 
 if [[ -n "$BUILDPACK_URL" ]]; then
