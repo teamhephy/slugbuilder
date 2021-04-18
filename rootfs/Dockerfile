@@ -1,4 +1,4 @@
-FROM heroku/heroku:18-build
+FROM heroku/heroku:20-build
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN mkdir /app
@@ -30,16 +30,16 @@ RUN sed -i -e 's/^deb-src/#deb-src/' /etc/apt/sources.list && \
 
 ADD . /
 ENV PYTHONPATH $PYTHONPATH:/usr/local/lib/python3/site-packages
-ADD https://storage.googleapis.com/hephy-obj-storage-cli/bb8e054/objstorage /bin/objstorage
-RUN chmod +x /bin/objstorage && \
+ADD https://storage.googleapis.com/hephy-obj-storage-cli/bb8e054/objstorage /usr/bin/objstorage
+RUN chmod +x /usr/bin/objstorage && \
     chown -R slug:slug /app && \
-    chown slug:slug /bin/get_object \
-                    /bin/normalize_storage \
-                    /bin/put_object \
-                    /bin/objstorage \
-                    /bin/read_procfile_keys \
-                    /bin/restore_cache \
-                    /bin/store_cache
+    chown slug:slug /usr/bin/get_object \
+                    /usr/bin/normalize_storage \
+                    /usr/bin/put_object \
+                    /usr/bin/objstorage \
+                    /usr/bin/read_procfile_keys \
+                    /usr/bin/restore_cache \
+                    /usr/bin/store_cache
 
 USER slug
 ENV HOME /app
