@@ -1,7 +1,8 @@
+apiVersion: v2
 name: slugbuilder
 home: https://github.com/teamhephy/slugbuilder
-version: <Will be populated by the ci before publishing the chart>
-description: Buildpack application builder for Deis Workflow.
+version: 2.8.2
+description: Buildpack application builder for Hephy Workflow.
 maintainers:
-  - name: Deis Team
-    email: engineering@deis.com
+- name: Team Hephy
+  email: team@teamhephy.com
