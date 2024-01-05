@@ -96,7 +96,7 @@ export APP_DIR="$app_dir"
 export HOME="$app_dir"
 REQUEST_ID=$(openssl rand -base64 32)
 export REQUEST_ID
-export STACK=heroku-18
+export STACK=heroku-20
 
 ## copy the environment dir excluding the ephemeral ..data/ dir and other symlinks created by Kubernetes.
 secret_dir_file_list="$(ls -A $secret_dir)"
